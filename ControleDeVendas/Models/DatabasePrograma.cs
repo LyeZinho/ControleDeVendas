@@ -129,7 +129,24 @@ namespace ControleDeVendas
             }
         }
         //Operações com os produtos
-        
+        public dynamic GetAllProdutos()
+        {
+            try
+            {
+                using (MySqlConnection conn = new MySqlConnection(connStr()))
+                {
+                    string procedure = "get_all_produtos";
+                    dynamic query = conn.Query<Produto>(
+                        procedure, null, commandType: System.Data.CommandType.StoredProcedure);
+                    return query;
+                }
+            }
+            catch (MySqlException ex)
+            {
+                Console.WriteLine(ex.Message);
+                return false;
+            }
+        }
     }
 }
     

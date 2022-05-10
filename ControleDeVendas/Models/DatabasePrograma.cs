@@ -40,7 +40,10 @@ namespace ControleDeVendas
                 {
                     string procedure = "get_cliente";
                     dynamic query = conn.QuerySingle<Cliente>(
-                        procedure, new { cid = cliente.Id, cnome = cliente.Nome }, commandType: System.Data.CommandType.StoredProcedure);
+                    procedure, new { 
+                       cid = cliente.Id, 
+                       cnome = cliente.Nome 
+                    }, commandType: System.Data.CommandType.StoredProcedure);
                     return query;
                 }
             }
@@ -113,6 +116,7 @@ namespace ControleDeVendas
                     new
                     {
                         cid = cliente.Id,
+                        cnome = cliente.Nome,
                     },
                     commandType: System.Data.CommandType.StoredProcedure);
                     return true;

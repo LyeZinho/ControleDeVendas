@@ -1,5 +1,13 @@
 using ControleDeVendas;
 
+DatabasePrograma db = new DatabasePrograma();
+Cliente c = new Cliente();
+c.Id = 5;
+c.Nome = "Not";
+c.Email = "Not@demo.com";
+c.Telefone = 123456789;
+c.Nif = 123456789;
+dynamic data = db.DeleteCliente(c);
 
 
 

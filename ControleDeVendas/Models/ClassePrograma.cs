@@ -1,5 +1,6 @@
 ﻿namespace ControleDeVendas
 {
+
     public class Cliente
     {
         public int Id { get; set; }
@@ -48,29 +49,34 @@
             this.Descricao = descricao;
         }
     }
-    public class Venda 
+    public class Venda
     {
         public int Id { get; set; }
         public int IdCliente { get; set; }
+        public string NomeCliente { get; set; }
         public int IdProduto { get; set; }
+        public string NomeProduto { get; set; }
         public int Quantidade { get; set; }
-        public int Total { get; set; }
+        public double Total { get; set; }
         public double Preco { get; set; }
-
         public Venda()
         {
             this.Id = 0;
             this.IdCliente = 0;
+            this.NomeCliente = "";
             this.IdProduto = 0;
+            this.NomeProduto = "";
             this.Quantidade = 0;
             this.Total = 0;
             this.Preco = 0;
         }
-        public Venda(int id, int idCliente, int idProduto, int quantidade, int total, double preco)
+        public Venda(int id, int idCliente, string nomeCliente, int idProduto, string nomeProduto, int quantidade, int total, double preco)
         {
             this.Id = id;
             this.IdCliente = idCliente;
+            this.NomeCliente = nomeCliente;
             this.IdProduto = idProduto;
+            this.NomeProduto = nomeProduto;
             this.Quantidade = quantidade;
             this.Total = total;
             this.Preco = preco;

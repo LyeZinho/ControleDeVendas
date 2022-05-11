@@ -1,0 +1,36 @@
+﻿@model ControleDeVendas.Produto;
+
+<h1>Registrar produto.</h1>
+
+<br><br><br><br>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-4">
+            <form asp-controller="Produtos" asp-action="Criar" method="post">
+              <div class="form-group">
+                <input type="hidden" class="form-control" asp-for=Id placeholder="">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmail1">Nome</label>
+                <input type="text" class="form-control" asp-for=Nome placeholder="Insira o nome" required>
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmail1">Stock</label>
+                <input type="number" class="form-control" asp-for=Stock placeholder="Insira o Stock" required>
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmail1">Descrição</label>
+                <input type="text" class="form-control" asp-for=Descricao placeholder="Insira a Descrição" required>
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmail1">Preço</label>
+                <input type="text" class="form-control" asp-for=Preco placeholder="Insira o Preço" required>
+              </div>
+              <br>
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+		    </div>
+		    <div class="col-md-8">
+		</div>
+	</div>
+</div>

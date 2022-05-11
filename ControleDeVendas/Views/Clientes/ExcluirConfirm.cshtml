@@ -1,0 +1,22 @@
+﻿@model Cliente;
+
+
+<br><br><br><br>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-4">
+            <form asp-controller="Clientes" asp-action="Excluir" method="post">
+              <h3>Realmente deseja excluir este cliente?</h3>
+              <div class="form-group">
+                <input type="hidden" class="form-control" asp-for=Id>
+              </div>
+              
+              <br>
+              <button type="submit" class="btn btn-danger">Confirmar</button>
+              <button type="submit" class="btn btn-primary" asp-action="index">Cancelar</button>
+            </form>
+		    </div>
+		    <div class="col-md-8">
+		</div>
+	</div>
+</div>

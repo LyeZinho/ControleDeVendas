@@ -1,0 +1,38 @@
+﻿@model ControleDeVendas.Cliente;
+
+<h1>Registrar cliente.</h1>
+
+<br><br><br><br>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-4">
+            <form asp-controller="Clientes" asp-action="Criar" method="post">
+              <div class="form-group">
+                <label for="exampleInputEmail1">Nome</label>
+                <input type="text" class="form-control" asp-for=Nome placeholder="Insira o nome" required>
+              </div>
+              
+              <div class="form-group">
+                <label for="exampleInputEmail1">Contato</label>
+                <input type="number" class="form-control" asp-for=Telefone placeholder="Insira o contato" required>
+              </div>
+              
+              <div class="form-group">
+                <label for="exampleInputEmail1">Email</label>
+                <input type="email" class="form-control" asp-for=Email placeholder="Insira o email" required>
+              </div>
+              
+              <div class="form-group">
+                <label for="exampleInputEmail1">Nif</label>
+                <input type="number" class="form-control" asp-for=Nif placeholder="Insira o nif" required>
+              </div>
+              
+              <br>
+              <button type="submit" class="btn btn-primary">Confirmar</button>
+              <button type="submit" class="btn btn-primary" asp-action="index">Cancelar</button>
+            </form>
+		    </div>
+		    <div class="col-md-8">
+		</div>
+	</div>
+</div>

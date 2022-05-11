@@ -264,7 +264,7 @@ namespace ControleDeVendas
                 return false;
             }
         }
-        public dynamic GetVendaGroup(Venda venda)
+        public dynamic GetVendasGroup(Venda venda)
         {
             //Função retorna um grupo de vendas
             //dependendo do cliente ou produto

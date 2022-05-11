@@ -1,0 +1,52 @@
+﻿@{
+    ViewData["Title"] = "Clientes";
+}
+<h3 class="align-self-center" >Lista de clientes</h3>
+<br><br>
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-8" style="overflow: auto; height:400px;">
+            <table class="table">
+              <thead class="table-dark">
+                 <tr>
+                    <th scope="col" class="">#</th>
+                    <th scope="col" class="">Nome</th>
+                    <th scope="col" class="">Contato</th>
+                    <th scope="col" class="">Email</th>      
+                    <th scope="col" class="">Nif</th>
+                    <th>
+                        <a role="button" class="btn btn-primary" asp-action="Criar" >Adcionar</a>
+                    </th>
+                 </tr>
+              </thead>
+             <tbody>
+                @{
+                          DatabasePrograma db = new DatabasePrograma();
+                          dynamic data = db.GetAllClientes();
+                          foreach (var item in data)
+                          {
+                            <tr>                
+                               <td scope="row">@item.Id</td>
+                               <td scope="row">@item.Nome</td>
+                               <td scope="row">@item.Telefone</td>
+                               <td scope="row">@item.Email</td>
+                               <td scope="row">@item.Nif</td>
+                               <td>
+                                   <div class="btn-group btn-group-sm" role="group" >
+                                        <a role="button" class="btn btn-primary" asp-route-id="@item.Id" asp-controller="Clientes" asp-action="editar">Editar</a>
+                                        <a role="button" class="btn btn-danger" asp-route-id="@item.Id" asp-controller="Clientes" asp-action="ExcluirConfirm">Remover</a>
+                                        <a role="button" class="btn btn-info" asp-route-id="@item.Id" asp-controller="Vendas" asp-action="index">Vendas</a>
+                                   </div>
+                               </td>
+                            </tr>
+                          }
+               }            
+             </tbody>
+        </table>
+		</div>
+		<div class="col-md-4">
+		</div>
+	</div>
+</div>
+

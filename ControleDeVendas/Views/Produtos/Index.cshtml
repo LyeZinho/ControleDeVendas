@@ -1,0 +1,49 @@
+﻿@model ControleDeVendas.Venda;
+@using System.Globalization;
+
+<br><br>
+<div class="container-fluid">
+	<div class="row">
+		    <div class="col-md-8" style="overflow: auto; height:400px";>
+                <h3>Lista de produtos</h3>
+                <table class="table">
+                  <thead class="table-dark">
+                     <tr>
+                        <th scope="col" class="">#</th>
+                        <th scope="col" class="">Nome</th>
+                        <th scope="col" class="">Stock</th>
+                        <th scope="col" class="">Preço</th>
+                        <th scope="col" class="">Sobre</th>
+                        <th>
+                            <a role="button" class="btn btn-primary" asp-action="Criar" >Adcionar</a>
+                        </th>
+                     </tr>
+                  </thead>
+                 <tbody>
+                    @{
+                            DatabasePrograma db = new DatabasePrograma();
+                            dynamic data = db.GetAllProdutos();
+                            foreach (var item in data)
+                            {
+                                <tr>
+                                    <th scope="row">@item.Id</th>
+                                    <td scope="row">@item.Nome</td>
+                                    <td scope="row">@item.Stock</td>
+                                    <td scope="row">@string.Format(new CultureInfo("pt-PT"), "{0:c}", item.Preco)</td>
+                                    <td scope="row">@item.Descricao</td>
+                                    <td>
+                                        <div class="btn-group btn-group-sm" role="group" >
+                                            <a role="button" class="btn btn-primary" asp-route-id="@item.Id" asp-controller="Produtos" asp-action="editar">Editar</a>
+                                            <a role="button" class="btn btn-danger" asp-route-id="@item.Id" asp-controller="Produtos" asp-action="ExcluirConfirm">Remover</a>
+                                       </div>
+                                    </td>
+                                </tr>
+                            }
+                   }            
+                 </tbody>
+            </table>
+		</div>
+        <div class="col-md-4">
+		</div>
+	</div>
+</div>
